@@ -14,7 +14,7 @@ angular
 				controller:"addABusinessController",
 				templateUrl:"templates/addbusiness.html"
 			})
-			
+
 			.state('businessById', {
 				url: '/businesses/:id',
 				controller: "businessByIdController",
@@ -30,7 +30,4 @@ angular
 				controller: "entrepreneursByIdController",
 				templateUrl: "templates/entrepreneur-detail.html"
 			})
-
-			$locationProvider.html5Mode(true)
-
 	});
