@@ -1,198 +1,174 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
-            <h3>Add a Business</h3>
-            <!-- add ability to add only student -->
-            <!-- in student profile, add ability to + business -->
-            <form>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Business Detail</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" name="name" class="form-control" ng-model="business.name" id="business" placeholder="Business Name">
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email" class="form-control" id="email"
-                                    ng-model="business.email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" name="phone" class="form-control"
-                                    ng-model="business.phone" id="phone" placeholder="Phone">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Website</label>
-                            <input type="text" name="website"
-                            ng-model="business.website" class="form-control" id="website" placeholder="Website">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" name="address1"
-                            ng-model="business.address1" class="form-control" id="address" placeholder="Address">
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" name="city"
-                                    ng-model="business.city" class="form-control" id="city" placeholder="City">
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-3">
-                                <div class="form-group">
-                                    <label for="state">State</label>
-                                    <select name="state"
-                                    ng-model="business.state" class="form-control" id="state">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
+      <h3>Add a Business</h3>
+      <!-- add ability to add only student -->
+      <!-- in student profile, add ability to + business -->
+      <form ng-submit="addBusiness(business,owner)">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Business Detail</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="business">Business Name</label>
+              <input type="text" name="name" class="form-control" ng-model="business.name" id="business" placeholder="Business Name">
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" class="form-control" id="email" ng-model="business.email" placeholder="Email">
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" name="phone" class="form-control" ng-model="business.phone" id="phone" placeholder="Phone">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="website">Website</label>
+              <input type="text" name="website" ng-model="business.website" class="form-control" id="website" placeholder="Website">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" name="address1" ng-model="business.address1" class="form-control" id="address" placeholder="Address">
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" name="city" ng-model="business.city" class="form-control" id="city" placeholder="City">
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <select name="state" ng-model="business.state" class="form-control" id="state">
 
-                                        <option selected>CO</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-3">
-                                <div class="form-group">
-                                    <label for="zip">Zip</label>
-                                    <input type="integer" name="zip"
-                                    ng-model="business.zip" class="form-control" id="zip" placeholder="Zip">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="industry">Industry:</label>
-                            <select class="form-control" name="industry" id="industry"
-                            ng-model="business.industry">
-                              <option ng-repeat="industry in industries">{{industry.type}}</option>
-                            </select>
-                            <br/>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="date_opened">Doors Opened:</label>
-                                        <input type="date"
-                                        ng-model="business.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label for="date_closed">Doors Closed:</label>
-                                    <input type="date" name="date_closed"
-                                    ng-model="business.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description:</label>
-                            <textarea type="text" name="description"
-                              ng-model="business.description"
-                             class="form-control" id="description"></textarea>
-                        </div>
-                        <!-- // Add date for registered with SoS -->
-                        <div class="checkbox">
-                            <label>
-                              <select name="good_standing"
-                              ng-model="business.good_standing" class="form-control" id="good_standing">
+                    <option selected>CO</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <div class="form-group">
+                  <label for="zip">Zip</label>
+                  <input type="integer" name="zip" ng-model="business.zip" class="form-control" id="zip" placeholder="Zip">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="industry">Industry:</label>
+              <select class="form-control" name="industry" id="industry" ng-model="business.industry_id">
+                <option ng-value="{{industry.id}}" ng-repeat="industry in industries">{{industry.type}}</option>
+              </select>
+              <br/>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="date_opened">Doors Opened:</label>
+                    <input type="date" ng-model="business.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy">
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="date_closed">Doors Closed:</label>
+                  <input type="date" name="date_closed" ng-model="business.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea type="text" name="description" ng-model="business.description" class="form-control" id="description"></textarea>
+            </div>
+            <!-- // Add date for registered with SoS -->
+            <div class="checkbox">
+              <label>
+                <select name="good_standing" ng-model="business.good_standing" class="form-control" id="good_standing">
 
-                                  <option ng-value="true" selected>Yes</option>
-                                  <option ng-value="false">No</option>
-                              </select> Good Standing? (Secretary of State)
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <!-- add gender checkbox -->
-                        <h3 class="panel-title">Owner Detail</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="first_name">First Name</label>
-                                    <input type="text" name="first_name"
-                                    ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="last_name">Last Name</label>
-                                    <input type="text" name="last_name"
-                                    ng-model="owner.lasts_name" class="form-control" id="last_name" placeholder="Last Name">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" name="email"
-                            ng-model="owner.email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                        <div class="row">
-                            <hr>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="class">Education</label>
-                                    <select name="class" class="form-control" id="class">
-                                        <option selected disabled></option>
-                                        <option>Considering a Business?</option>
-                                        <option>Listening to your Business</option>
-                                        <option>Exito Para Negocios</option>
-                                        <option>Dreambuilder</option>
-                                        <option>Business Success</option>
-                                        <option>Business Breakthrough</option>
-                                        <option>Consulting</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-2">
-                                <div class="form-group">
-                                    <label for="semester">Semester</label>
-                                    <select name="semester" class="form-control" id="semester">
-                                        <option selected disabled></option>
-                                        <option>Spring</option>
-                                        <option>Summer</option>
-                                        <option>Fall</option>
-                                        <option>Winter</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-2">
-                                <div class="form-group">
-                                    <label for="year">Year</label>
-                                    <input type="number" name="year" class="form-control" id="year" placeholder="Year">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-2">
-                                <div class="form-group">
-                                    <label for="did_graduate">Graduated?</label>
-                                    <select name="did_graduate" class="form-control" id="did_graduate">
-                                        <option selected disabled></option>
-                                        <option>Yes</option>
-                                        <option>No</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus"></i>&nbsp; Add Class</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </div>
-                </div>
-            </form>
+                  <option ng-value="true" selected>Yes</option>
+                  <option ng-value="false">No</option>
+                </select> Good Standing? (Secretary of State)
+              </label>
+            </div>
+          </div>
         </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <!-- add gender checkbox -->
+            <h3 class="panel-title">Owner Detail</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="first_name">First Name</label>
+                  <input type="text" name="first_name" ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name">
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="last_name">Last Name</label>
+                  <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="row">
+              <hr>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="class">Education</label>
+                  <select ng-model="owner.education" name="class" class="form-control" id="class">
+                    <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-2">
+                <div class="form-group">
+                  <label for="semester">Semester</label>
+                  <select ng-model="owner.semester" name="semester" class="form-control" id="semester">
+                    <option selected disabled></option>
+                    <option>Spring</option>
+                    <option>Summer</option>
+                    <option>Fall</option>
+                    <option>Winter</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-2">
+                <div class="form-group">
+                  <label for="year">Year</label>
+                  <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-2">
+                <div class="form-group">
+                  <label for="did_graduate">Graduated?</label>
+                  <select ng-model="owner.graduted" name="did_graduate" class="form-control" id="did_graduate">
+                    <option selected disabled></option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
