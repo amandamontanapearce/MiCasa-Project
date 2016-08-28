@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style/bootSwatch.css">
     <link rel="stylesheet" href="/style/style.css">
-    <base href="/">
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -34,7 +33,7 @@
               </ul>
             </li>
             <!-- <li class="active"><a href="#"><i class="fa fa-search"></i>&nbsp; Search <span class="sr-only">(current)</span></a></li> -->
-            <li><a href="#"><i class="fa fa-plus"></i>&nbsp; Add</a></li>
+            <li><a ui-sref="addABusiness"><i class="fa fa-plus"></i>&nbsp; Add</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -64,5 +63,6 @@
   <script src="./javascript/factories.js"></script>
   <script src="./javascript/controllers/businessController.js"></script>
   <script src="./javascript/controllers/businessByIdController.js"></script>
+  <script src="./javascript/controllers/addABusinessController.js"></script>
   </body>
 </html>
