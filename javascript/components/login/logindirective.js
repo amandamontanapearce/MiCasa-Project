@@ -1,6 +1,6 @@
 (function(){
   angular
-  .module('myApp.login.login-directive', [])
+  .module('myApp.login')
   .directive('login', login);
   function login(){
     var directive = {

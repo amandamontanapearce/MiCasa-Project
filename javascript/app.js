@@ -1,5 +1,6 @@
 angular
-	.module('myApp', ['ui.router', 'ui.bootstrap', 'myApp.login', 'angularUtils.directives.dirPagination'])
+	.module('myApp', ['ui.router', 'ui.bootstrap',
+  'myApp.login', 'angularUtils.directives.dirPagination'])
 	.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		$urlRouterProvider.otherwise("/");
 
