@@ -4,13 +4,13 @@ angular
 		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
-			.state('landing', {
-				url: '/login',
+			.state('login', {
+				url: '/',
 				controller: "loginController",
 				templateUrl: "templates/login.html"
 			})
 			.state('home', {
-				url: '/',
+				url: '/home',
 				controller: "businessController",
 				templateUrl: "templates/business.html"
 			})
