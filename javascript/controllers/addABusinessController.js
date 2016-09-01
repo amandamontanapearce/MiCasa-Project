@@ -13,8 +13,8 @@ angular
 	$scope.addBusiness = function (business, owner) {
 		console.log("Client Business",business);
 		console.log("Owner with Education?", owner);
-			dataFactory.addBusiness(business, owner).then(function() {
-				$state.go('home')
+			dataFactory.addBusiness(business, owner).then(function(data) {
+				$state.go('businessById', { id: data })
 			})
 	}
 
