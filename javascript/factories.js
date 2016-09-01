@@ -98,10 +98,6 @@ angular
 				 'username': username,
 				 'password': password
 			 }
-      //  loginInfo = {
-      //    getToken: user.token,
-      //    getUserId: user.userId,
-      //  }
 			console.log(params);
 			 return $http.post('http://localhost:3000/login', params);
 		 }

@@ -8,9 +8,15 @@ angular
       console.log(username);
       dataFactory.getLogin(username, password).then(function(response) {
         console.log('hitting login');
-        console.log(response);
+        console.log('response', response);
         _setUserData(response.data);
-        // $state.go('home')
+        console.log(response.data);
+       loginInfo = {
+         getToken: user.token,
+         getUserId: user.userId,
+       }
+       console.log(loginInfo);
+        $state.go('home')
       }, function errorCallback(err){
         console.log(err);
       });
