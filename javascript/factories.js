@@ -92,7 +92,7 @@ angular
 				}
 				return $http.post('http://localhost:3000/businesses/' + id + '/addNote', newNote)
 			},
-		 	getLogin: function (body) {
+		 	getLogin: function (username, password) {
 			console.log('hitting factory');
 			 params = {
 				 'username': username,
