@@ -2,8 +2,7 @@ angular
 	.module('myApp')
 	.factory('dataFactory', ['$http', '$q', function($http, $q) {
 		return {
-			getAll:
-			function () {
+			getAll: function () {
 				return $http.get('http://localhost:3000/businesses')
 				.then(function(data) {
 					let results = data.data
@@ -92,6 +91,19 @@ angular
 					notes: note
 				}
 				return $http.post('http://localhost:3000/businesses/' + id + '/addNote', newNote)
-			}
+			},
+		 	getLogin: function (body) {
+			console.log('hitting factory');
+			 params = {
+				 'username': username,
+				 'password': password
+			 }
+      //  loginInfo = {
+      //    getToken: user.token,
+      //    getUserId: user.userId,
+      //  }
+			console.log(params);
+			 return $http.post('http://localhost:3000/login', params);
+		 }
 		}
 	}])
