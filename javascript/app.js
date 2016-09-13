@@ -14,7 +14,11 @@ angular
 				controller:"addABusinessController",
 				templateUrl:"templates/addbusiness.html"
 			})
-
+			.state('addEntrepreneur', {
+				url: '/entrepreneurs/add',
+				controller: "addEntrepreneurController",
+				templateUrl: "templates/addEntrepreneur.html"
+			})
 			.state('businessById', {
 				url: '/businesses/:id',
 				controller: "businessByIdController",
