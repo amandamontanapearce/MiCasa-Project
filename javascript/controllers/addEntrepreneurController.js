@@ -5,7 +5,7 @@ angular
    $scope.addEntrepreneur = function (owner) {
      console.log("Owner with Education?", owner);
        dataFactory.addOwner(owner).then(function(data) {
-         console.log(data)
+         console.log("adding data")
        })
     }
  })
