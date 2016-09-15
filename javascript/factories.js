@@ -79,7 +79,17 @@ angular
 					return data.data.business_id
 				})
 			},
-
+			addOwner: function (owner) {
+				ownerData = {
+					'first_name': owner.first_name,
+					'last_name': owner.last_name,
+					'email': owner.email,
+					'phone': owner.phone
+				}
+				return $http.post('http://localhost:3000/entrepreneurs/add', ownerData).then(function(data){
+					console.log('hit owner route')
+				})
+			},
 			getAllIndustries: $http.get('http://localhost:3000/businesses/industries')
 				.then(function(data) {
 					let results = data.data
