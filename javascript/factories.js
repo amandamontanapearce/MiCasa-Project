@@ -84,7 +84,10 @@ angular
 					'first_name': owner.first_name,
 					'last_name': owner.last_name,
 					'email': owner.email,
-					'phone': owner.phone
+					'phone': owner.phone,
+					'gender': owner.gender,
+					'languageSpoken': owner.languageSpoken,
+					'isMinority': owner.isMinority
 				}
 				return $http.post('http://localhost:3000/entrepreneurs/add', ownerData).then(function(data){
 					console.log('hit owner route')
