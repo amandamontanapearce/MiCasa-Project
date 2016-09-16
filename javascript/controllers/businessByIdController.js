@@ -3,9 +3,8 @@ angular
 	.controller('businessByIdController', function($scope, $stateParams, dataFactory, $state) {
 		$scope.business = {}
 		$scope.commentArray = []
-		dataFactory.getById($stateParams.id)
+		dataFactory.getBusinessById($stateParams.id)
 			.then(function(data) {
-				console.log(data)
 				$scope.commentArray = data[0]
 				$scope.business = data[1][0]
 			})
