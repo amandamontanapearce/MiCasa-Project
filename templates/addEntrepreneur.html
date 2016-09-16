@@ -17,10 +17,43 @@
           <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name">
         </div>
       </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Email</label>
+          <input type="text" name="last_name" ng-model="owner.email" class="form-control" id="last_name" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Phone Number</label>
+          <input type="text" name="last_name" ng-model="owner.phone" class="form-control" id="last_name" placeholder="Last Name">
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email">
+      <label for="email">Gender</label>
+      <input type="text" name="gender" ng-model="owner.gender" class="form-control" id="email" placeholder="Gender">
+    </div>
+    <div class="form-group">
+      <label for="email">Language</label>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="English">English</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="Spanish">Spanish</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="Billingual">Billingual</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Minority</label>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.isMinority" value="true">Yes</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.isMinority" value="false">No</label>
+      </div>
     </div>
     <div class="row">
       <hr>
