@@ -87,7 +87,7 @@ angular
 					'phone': owner.phone,
 					'gender': owner.gender,
 					'languageSpoken': owner.languageSpoken,
-					'isMinority': owner.isMinority
+					'isMinority': owner.isMinority 
 				}
 				return $http.post('http://localhost:3000/entrepreneurs/add', ownerData).then(function(data){
 					console.log('hit owner route')
