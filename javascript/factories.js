@@ -10,12 +10,18 @@ angular
 					return $q.resolve(results)
 				})
 			},
-			getById: function(id) {
+			getBusinessById: function(id) {
 				return $http.get('http://localhost:3000/businesses/' + id)
 					.then(function(data) {
 						let business = data.data
 						return $q.resolve(business)
 					})
+			},
+			getEntrepreneurById: function (id) {
+				return $http.get('http://localhost:3000/entrepreneurs/' + id).then(function(data) {
+					let entrepreneur = data.data
+					return $q.resolve(entrepreneur);
+				})
 			},
 			updateBusiness: function(body) {
 				newData = {
