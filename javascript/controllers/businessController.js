@@ -17,6 +17,7 @@ angular
 		}
 		dataFactory.getAll()
 			.then(function(data) {
+
 				$scope.resultArray = data
 			})
 		dataFactory.getAllIndustries
