@@ -79,7 +79,28 @@ angular
 					return data.data.business_id
 				})
 			},
-
+			addOwner: function (owner) {
+				ownerData = {
+					'first_name': owner.first_name,
+					'last_name': owner.last_name,
+					'email': owner.email,
+					'phone': owner.phone,
+					'gender': owner.gender,
+					'languageSpoken': owner.languageSpoken,
+					'isMinority': owner.isMinority
+				}
+				classData = {
+					'did_graduate': owner.did_graduate,
+					'year': parseInt(owner.year),
+					'semester': owner.semester,
+					'class_id': parseInt(owner.class_id)
+				}
+				var data = [ownerData, classData]
+				return $http.post('http://localhost:3000/entrepreneurs/add', data).then(function(data){
+					console.log('hit owner route')
+					return data
+				})
+			},
 			getAllIndustries: $http.get('http://localhost:3000/businesses/industries')
 				.then(function(data) {
 					let results = data.data

@@ -1,0 +1,103 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <!-- add gender checkbox -->
+    <h3 class="panel-title">{{message}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Email</label>
+          <input type="text" name="last_name" ng-model="owner.email" class="form-control" id="last_name" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Phone Number</label>
+          <input type="text" name="last_name" ng-model="owner.phone" class="form-control" id="last_name" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Gender</label>
+      <input type="text" name="gender" ng-model="owner.gender" class="form-control" id="email" placeholder="Gender">
+    </div>
+    <div class="form-group">
+      <label for="language">Language</label>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="English">English</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="Spanish">Spanish</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.languageSpoken" value="Billingual">Billingual</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Minority</label>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.isMinority" value="true">Yes</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" ng-model="owner.isMinority" value="false">No</label>
+      </div>
+    </div>
+    <div class="row">
+      <hr>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="class">Education</label>
+          <select ng-model="owner.class_id" name="class" class="form-control" id="class">
+            <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="semester">Semester</label>
+          <select ng-model="owner.semester" name="semester" class="form-control" id="semester">
+            <option selected disabled></option>
+            <option>Spring</option>
+            <option>Summer</option>
+            <option>Fall</option>
+            <option>Winter</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="did_graduate">Graduated?</label>
+          <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate">
+            <option selected disabled></option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <button type="submit" class="btn btn-primary btn-block" ng-click="addEntrepreneur(owner)">Submit</button>
+  </div>
+</div>
