@@ -88,7 +88,6 @@ angular
 				}
 
 				var data = [businessData,ownerData,classData]
-				console.log(data);
 
 				return $http.post('http://localhost:3000/businesses/add', data).then(function(data) {
 					return data.data.business_id
@@ -112,7 +111,6 @@ angular
 				}
 				var data = [ownerData, classData]
 				return $http.post('http://localhost:3000/entrepreneurs/add', data).then(function(data){
-					console.log('hit owner route')
 					return data
 				})
 			},
