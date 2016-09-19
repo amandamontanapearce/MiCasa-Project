@@ -1,10 +1,11 @@
 angular
 	.module('myApp')
 	.controller('businessController', function($scope, $filter, dataFactory) {
-		$scope.industryFilter = ''
-		$scope.cityFilter = ''
-		$scope.genderFilter = ''
+		$scope.industryId = ""
+		$scope.cityName = ""
+		$scope.gender = ""
 		$scope.businessOrder = 'name'
+		console.log("id", $scope.industryId);
 		$scope.toggleBusinessOrder = function(field) {
 			if (field === 'businessName' && $scope.businessOrder !== 'name') {
 				$scope.businessOrder = 'name'
@@ -17,12 +18,26 @@ angular
 			}
 		}
 		$scope.filterIndustry = function () {
-			console.log($scope.industryFilter);
-			// if($scope.industryFilter === '') {
-			// 	$filter('filterIndustry')('resultArray')
-			// } else {
-			// 	$filter('filterIndustry')('resultArray', {industry_id: $scope.industryFilter})
-			// }
+			console.log($scope.industryId);
+			if($scope.industryId === null){
+				$scope.industryId = true
+			} else {
+				$scope.industryId = $scope.industryId
+			}
+		}
+		$scope.filterCity = function () {
+			if($scope.cityName === ""){
+				$scope.cityName = true
+			} else {
+				$scope.cityName = $scope.cityName
+			}
+		}
+		$scope.filterGender = function () {
+			if($scope.gender === ""){
+				$scope.gender = true
+			} else {
+				$scope.gender = $scope.gender
+			}
 		}
 		dataFactory.getAll()
 			.then(function(data) {
