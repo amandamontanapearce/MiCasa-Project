@@ -1,8 +1,9 @@
 angular
 	.module('myApp')
-	.controller('businessController', function($scope, dataFactory) {
+	.controller('businessController', function($scope, $filter, dataFactory) {
 		$scope.industryFilter = ''
 		$scope.cityFilter = ''
+		$scope.genderFilter = ''
 		$scope.businessOrder = 'name'
 		$scope.toggleBusinessOrder = function(field) {
 			if (field === 'businessName' && $scope.businessOrder !== 'name') {
@@ -15,6 +16,14 @@ angular
 				$scope.businessOrder = '-last_name'
 			}
 		}
+		$scope.filterIndustry = function () {
+			console.log($scope.industryFilter);
+			// if($scope.industryFilter === '') {
+			// 	$filter('filterIndustry')('resultArray')
+			// } else {
+			// 	$filter('filterIndustry')('resultArray', {industry_id: $scope.industryFilter})
+			// }
+		}
 		dataFactory.getAll()
 			.then(function(data) {
 
@@ -22,10 +31,12 @@ angular
 			})
 		dataFactory.getAllIndustries
 			.then(function(data) {
+				console.log("industry", data)
 				$scope.industries = data
 			})
 		dataFactory.getAllCities
 			.then(function(data) {
+				console.log(data);
 				$scope.cities = data
 			})
 	})
