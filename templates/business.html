@@ -53,19 +53,17 @@
         </th>
         <th>Phone</th>
         <th>Email</th>
-        <th>Industry</th>
         <th>Address</th>
       </tr>
     </thead>
     <tbody>
-      <tr dir-paginate="result in resultArray | filter:search | filter: {industry_id: industryId} | filter: {city: cityName} | filter: {gender: gender} | orderBy:businessOrder | itemsPerPage:4">
+      <tr dir-paginate="result in resultArray | filter:search | filter: filterIndustry | filter: {city: cityName} | filter: {gender: gender} | orderBy:businessOrder | itemsPerPage:4">
         <td><a ui-sref="businessById({id:result.business_id})">{{result.name}}</a><br>
           <span class="text-muted">{{result.type}}<span>
         </td>
         <td><a ui-sref="entrepreneursById({id:result.owner_id})">{{result.last_name}}, {{result.first_name}}</a></td>
         <td>{{result.businessPhone}}</td>
         <td>{{result.email}}</td>
-        <td>{{result.industry_id}}</td>
         <td>{{result.address1}},<br>{{result.city}}, {{result.state}} {{result.zip}}</td>
       </tr>
     </tbody>

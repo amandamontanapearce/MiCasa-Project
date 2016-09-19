@@ -1,6 +1,6 @@
 angular
 	.module('myApp')
-	.controller('businessController', function($scope, $filter, dataFactory) {
+	.controller('businessController', function($scope, dataFactory) {
 		$scope.industryId = ""
 		$scope.cityName = ""
 		$scope.gender = ""
@@ -17,26 +17,25 @@ angular
 				$scope.businessOrder = '-last_name'
 			}
 		}
-		$scope.filterIndustry = function () {
-			console.log($scope.industryId);
-			if($scope.industryId === null){
-				$scope.industryId = true
+		$scope.filterIndustry = function (company) {
+			if(!$scope.industryId) {
+				return true
 			} else {
-				$scope.industryId = $scope.industryId
+				return company.industry_id == $scope.industryId
 			}
 		}
-		$scope.filterCity = function () {
-			if($scope.cityName === ""){
-				$scope.cityName = true
+		$scope.filterCity = function (company) {
+			if(!$scope.city) {
+				return true
 			} else {
-				$scope.cityName = $scope.cityName
+				return company.city == $scope.cityName
 			}
 		}
-		$scope.filterGender = function () {
-			if($scope.gender === ""){
-				$scope.gender = true
+		$scope.filterGender = function (company) {
+			if(!$scope.gender) {
+				return true
 			} else {
-				$scope.gender = $scope.gender
+				return company.gender == $scope.gender
 			}
 		}
 		dataFactory.getAll()
@@ -46,12 +45,10 @@ angular
 			})
 		dataFactory.getAllIndustries
 			.then(function(data) {
-				console.log("industry", data)
 				$scope.industries = data
 			})
 		dataFactory.getAllCities
 			.then(function(data) {
-				console.log(data);
 				$scope.cities = data
 			})
 	})
