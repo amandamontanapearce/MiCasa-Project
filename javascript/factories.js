@@ -93,6 +93,28 @@ angular
 					return data.data.business_id
 				})
 			},
+
+			addBusinessById: function (id, business) {
+				businessData = {
+					'name': business.name,
+					'address1': business.address1,
+					'city': business.city,
+					'state': business.state,
+					'zip': business.zip,
+					'email': business.email,
+					'businessPhone': business.businessPhone,
+					'industry_id': parseInt(business.industry_id),
+					'date_opened': business.date_opened,
+					'date_closed': business.date_closed,
+					'good_standing': business.good_standing,
+					'description': business.description,
+					'website': business.website
+				}
+
+				console.log(businessData);
+				return $http.post('http://localhost:3000/businesses/' + id + '/addById', businessData)
+
+			},
 			addOwner: function (owner) {
 				ownerData = {
 					'first_name': owner.first_name,

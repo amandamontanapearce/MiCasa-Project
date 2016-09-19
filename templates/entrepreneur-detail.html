@@ -28,10 +28,107 @@
         <h3 class="panel-title">Business</h3>
       </div>
       <div class="panel-body">
-        <p><a ui-sref="businessById({id:business.business_id})">{{business.name}}</a></p>
-        <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus"></i>&nbsp; Add Business</a>
+        <p ng-repeat="business in businesses"><a ui-sref="businessById({id:business.business_id})">{{business.name}}</a></p>
+        <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#addABusiness"role="button"><i class="fa fa-plus"></i>&nbsp; Add Business</a>
       </div>
     </div>
+
+    <div class="modal fade" id="addABusiness" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add a business</h4>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
+                <label for="businessName">Business Name</label>
+                <input id="businessName" type="text" ng-model="newBusiness.name">
+              </div>
+              <div class="form-group">
+                <label for="businessPhone">Phone</label>
+                <input id="businessPhone" type="text" ng-model="newBusiness.businessPhone">
+              </div>
+              <div class="form-group">
+                <label for="businessEmail">Email</label>
+                <input id="businessEmail" type="text" ng-model="newBusiness.email">
+              </div>
+              <div class="form-group">
+                <label for="businessWebsite">Website</label>
+                <input id="businessWebsite" type="text" ng-model="newBusiness.website">
+              </div>
+              <div class="form-group">
+                <label for="businessAddress1">Address</label>
+                <input id="businessAddress1" ng-model="newBusiness.address1" type="text">
+              </div>
+              <div class="form-group">
+                <label for="businessCity">City</label>
+                <input id="businessCity" name="editBusinessForm.city" type="text" ng-model="newBusiness.city">
+              </div>
+              <div class="form-group">
+                <label for="businessState">State</label>
+                <input id="businessState" name="editBusinessForm.state" type="text" ng-model="newBusiness.state">
+              </div>
+              <div class="form-group">
+                <label for="businessZip">Zip</label>
+                <input id="businessZip" type="text" ng-model="newBusiness.zip">
+              </div>
+              <div class="form-group">
+                <label for="industry">Industry:</label>
+                <select class="form-control" name="industry" id="industry" ng-model="newBusiness.industry_id">
+                  <option ng-value="{{industry.id}}" ng-repeat="industry in industries">{{industry.type}}</option>
+                </select>
+                <br/>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="date_opened">Doors Opened:</label>
+                      <input type="date" ng-model="newBusiness.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="date_closed">Doors Closed:</label>
+                    <input type="date" name="date_closed" ng-model="newBusiness.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
+                  </div>
+                </div>
+              </div>
+              <fieldset class="form-group">
+                <legend>Is In Good Standing</legend>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="true" ng-checked="newBusiness.good_standing === true"> In Good Standing
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="false" ng-checked="newBusiness.good_standing === false"> Not In Good Standing
+                  </label>
+                </div>
+              </fieldset>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addANewBusiness()" data-dismiss="modal">Add a business</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <a class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
   </div>
 </div>
