@@ -7,6 +7,7 @@ angular
 				return $http.get('http://localhost:3000/businesses')
 				.then(function(data) {
 					let results = data.data
+					console.log(results);
 					return $q.resolve(results)
 				})
 			},
@@ -32,7 +33,7 @@ angular
 					'state': body.state,
 					'zip': body.zip,
 					'email': body.email,
-					'phone': body.phone,
+					'businessPhone': body.phone,
 					'industry_id': parseInt(body.industry_id),
 					'date_opened': body.date_opened,
 					'date_closed': body.date_closed,
@@ -50,7 +51,7 @@ angular
 					'state': business.state,
 					'zip': business.zip,
 					'email': business.email,
-					'phone': business.phone,
+					'businessPhone': business.businessPhone,
 					'industry_id': business.industry_id,
 					'date_opened': business.date_opened,
 					'date_closed': business.date_closed,
@@ -63,7 +64,7 @@ angular
 					'first_name': owner.first_name,
 					'last_name': owner.last_name,
 					'email': owner.email,
-					'phone': owner.phone
+					'ownerPhone': owner.ownerPhone
 				}
 
 				if (owner.did_graduate == "Yes") {
@@ -90,7 +91,7 @@ angular
 					'first_name': owner.first_name,
 					'last_name': owner.last_name,
 					'email': owner.email,
-					'phone': owner.phone,
+					'ownerPhone': owner.ownerPhone,
 					'gender': owner.gender,
 					'languageSpoken': owner.languageSpoken,
 					'isMinority': owner.isMinority
