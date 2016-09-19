@@ -6,8 +6,12 @@
         <h3 class="panel-title">Contact</h3>
       </div>
       <div class="panel-body">
-        <p><b>Phone</b>: {{entrepreneur.phone}}</p>
+        <p><b>Phone</b>: {{entrepreneur.ownerPhone}}</p>
         <p><b>Email</b>: {{entrepreneur.email}}</p>
+        <p><b>Gender:</b> {{entrepreneur.gender}}</p>
+        <p ng-show=entrepreneur.isMinority == true><b>Minority:</b> Yes</p>
+        <p ng-hide=entrepreneur.isMinority == false><b>Minority:</b> No</p>
+
       </div>
     </div>
     <div class="panel panel-default">

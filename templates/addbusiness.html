@@ -122,6 +122,21 @@
               <label for="email">Email</label>
               <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email">
             </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select ng-model="owner.gender" name="gender" class="form-control" id="gender">
+                <option ng-value="Female">Female</option>
+                <option ng-value="Male">Male</option>
+                <option ng-value="Not-Specified">Prefer not to specify</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="minority">Minority:</label>
+              <select ng-model="owner.isMinority" name="isMinority" class="form-control" id="minority">
+                <option ng-value="true">Yes</option>
+                <option ng-value="false" selected>No</option>
+              </select>
+            </div>
             <div class="row">
               <hr>
               <div class="col-xs-12 col-sm-6">

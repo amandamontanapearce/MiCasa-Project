@@ -64,7 +64,14 @@ angular
 					'first_name': owner.first_name,
 					'last_name': owner.last_name,
 					'email': owner.email,
-					'ownerPhone': owner.ownerPhone
+					'isMinority': owner.isMinority,
+					'gender': owner.gender
+				}
+
+				if (owner.isMinority == 'true') {
+					owner.isMinority = true;
+				} else if (owner.isMinority == 'false') {
+					owner.isMinority = false;
 				}
 
 				if (owner.did_graduate == "Yes") {
@@ -104,7 +111,6 @@ angular
 				}
 				var data = [ownerData, classData]
 				return $http.post('http://localhost:3000/entrepreneurs/add', data).then(function(data){
-					console.log('hit owner route')
 					return data
 				})
 			},
