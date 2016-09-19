@@ -1,9 +1,11 @@
 angular
 	.module('myApp')
 	.controller('businessController', function($scope, dataFactory) {
-		$scope.industryFilter = ''
-		$scope.cityFilter = ''
+		$scope.industryId = ""
+		$scope.cityName = ""
+		$scope.gender = ""
 		$scope.businessOrder = 'name'
+		console.log("id", $scope.industryId);
 		$scope.toggleBusinessOrder = function(field) {
 			if (field === 'businessName' && $scope.businessOrder !== 'name') {
 				$scope.businessOrder = 'name'
@@ -13,6 +15,27 @@ angular
 				$scope.businessOrder = 'last_name'
 			} else if (field === 'ownerName' && $scope.businessOrder !== '-last_name') {
 				$scope.businessOrder = '-last_name'
+			}
+		}
+		$scope.filterIndustry = function (company) {
+			if(!$scope.industryId) {
+				return true
+			} else {
+				return company.industry_id == $scope.industryId
+			}
+		}
+		$scope.filterCity = function (company) {
+			if(!$scope.city) {
+				return true
+			} else {
+				return company.city == $scope.cityName
+			}
+		}
+		$scope.filterGender = function (company) {
+			if(!$scope.gender) {
+				return true
+			} else {
+				return company.gender == $scope.gender
 			}
 		}
 		dataFactory.getAll()

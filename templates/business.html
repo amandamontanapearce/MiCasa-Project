@@ -4,27 +4,38 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" ng-model="search">
-        </div>
+`          <input type="text" class="form-control" placeholder="Search" ng-model="search">
+`        </div>
       </div>
         <div class="col-sm-2 col-sm-offset-4">
           <div class="form-group">
-            <select ng-model="industryFilter" class="form-control">
+            <select ng-model="industryId" class="form-control" ng-change="filterIndustry()">
               <option selected value="">All Industries</option>
               <option disabled>-----</option>
-              <option ng-repeat="industry in industries | orderBy:'type'" value="industry.type">{{industry.type}}</option>
+              <option ng-repeat="industry in industries | orderBy:'type'" value="{{industry.id}}">{{industry.type}}</option>
             </select>
           </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
-          <select ng-model="cityFilter" class="form-control">
+          <select ng-model="cityName" class="form-control">
             <option selected value="">All Cities</option>
             <option disabled>-----</option>
-            <option ng-repeat="city in cities | orderBy:'city'" value="city.city">{{city.city}}</option>
+            <option ng-repeat="city in cities | orderBy:'city'" value="{{city.city}}">{{city.city}}</option>
           </select>
         </div>
     </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <select ng-model="gender" class="form-control">
+          <option selected value="">All Genders</option>
+          <option disabled>-----</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Prefer Not to Specify">Prefer Not to Specify</option>
+        </select>
+      </div>
+  </div>
     </div>
 
     <table class="table table-striped table-hover ">
@@ -46,7 +57,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr dir-paginate="result in resultArray | filter:search | orderBy:businessOrder | itemsPerPage:4">
+      <tr dir-paginate="result in resultArray | filter:search | filter: filterIndustry | filter: {city: cityName} | filter: {gender: gender} | orderBy:businessOrder | itemsPerPage:4">
         <td><a ui-sref="businessById({id:result.business_id})">{{result.name}}</a><br>
           <span class="text-muted">{{result.type}}<span>
         </td>
