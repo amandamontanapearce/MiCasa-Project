@@ -5,7 +5,10 @@ angular
      $scope.classes = data
    })
    $scope.addEntrepreneur = function (owner) {
-       dataFactory.addOwner(owner).then(function(data) {
+     $scope.submit = {}
+     $scope.submit = angular.copy($scope.owner)
+       dataFactory.addOwner($scope.submit).then(function(data) {
        })
+       $scope.owner = {}
     }
  })
