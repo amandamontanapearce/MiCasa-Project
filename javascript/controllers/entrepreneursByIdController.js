@@ -13,11 +13,21 @@ angular
 				.then(function(data) {
 					$scope.industries = data
 				})
+				dataFactory.getAllClasses.then(function(data) {
+					$scope.classes = data;
+				})
 		$scope.addANewBusiness = function() {
 			console.log("button clicked");
 			dataFactory.addBusinessById($stateParams.id, $scope.newBusiness)
 			.then(function() {
 				console.log("We're reloading");
+				$state.reload()
+			})
+		}
+
+		$scope.addANewClass = function () {
+			dataFactory.addClasstoOwner($stateParams.id, $scope.newClass)
+			.then(function() {
 				$state.reload()
 			})
 		}

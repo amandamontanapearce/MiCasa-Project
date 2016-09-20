@@ -136,6 +136,12 @@ angular
 					return data
 				})
 			},
+
+			addClasstoOwner: function(id, classInfo) {
+				console.log("adding class to owner");
+				return $http.post('http://localhost:3000/entrepreneurs/' + id + '/addClassToOwner', classInfo)
+			},
+
 			getAllIndustries: $http.get('http://localhost:3000/businesses/industries')
 				.then(function(data) {
 					let results = data.data

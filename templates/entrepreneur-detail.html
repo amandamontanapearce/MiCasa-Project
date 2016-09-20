@@ -20,7 +20,7 @@
       </div>
       <div class="panel-body">
         <p ng-repeat="class in classArray"><b>{{class.name}}</b>: {{class.semester}} {{class.year}} <span ng-show="class.did_graduate">(Graduated)</span> <span ng-hide="class.did_graduate">(Did not graduate)</span></p>
-        <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus"></i>&nbsp; Add Class</a>
+        <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#addAClass"role="button"><i class="fa fa-plus"></i>&nbsp; Add Class</a>
       </div>
     </div>
     <div class="panel panel-default">
@@ -30,6 +30,66 @@
       <div class="panel-body">
         <p ng-repeat="business in businesses"><a ui-sref="businessById({id:business.business_id})">{{business.name}}</a></p>
         <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#addABusiness"role="button"><i class="fa fa-plus"></i>&nbsp; Add Business</a>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addAClass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add a Class</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <hr>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <label for="class">Education</label>
+                    <select ng-model="newClass.class_id" name="class" class="form-control" id="class">
+                      <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="semester">Semester</label>
+                    <select ng-model="newClass.semester" name="semester" class="form-control" id="semester">
+                      <option selected disabled></option>
+                      <option>Spring</option>
+                      <option>Summer</option>
+                      <option>Fall</option>
+                      <option>Winter</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="year">Year</label>
+                    <input ng-model="newClass.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="did_graduate">Graduated?</label>
+                    <select ng-model="newClass.did_graduate" name="did_graduate" class="form-control" id="did_graduate">
+                      <option selected disabled></option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="addANewClass()" data-dismiss="modal">Add a Class</button>
+          </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
