@@ -32,4 +32,8 @@ angular
 			})
 		}
 
+		$scope.editEntrepreneur = function() {
+			console.log('hit');
+			dataFactory.updateEntrepreneur($scope.entrepreneur, $stateParams.id)
+		}
   });

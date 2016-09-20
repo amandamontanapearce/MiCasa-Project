@@ -43,6 +43,19 @@ angular
 				}
 				return $http.put('http://localhost:3000/businesses/' + body.business_id, newData)
 			},
+			updateEntrepreneur: function(body, id) {
+				ownerData = {
+					'id': id,
+					'first_name': body.first_name,
+					'last_name': body.last_name,
+					'email': body.email,
+					'ownerPhone': body.ownerPhone,
+					'gender': body.gender,
+					'languageSpoken': body.languageSpoken,
+					'isMinority': body.isMinority
+				}
+				return $http.put('http://localhost:3000/entrepreneurs/' + id, ownerData)
+			},
 			addBusiness: function (business, owner) {
 				businessData = {
 					'name': business.name,
