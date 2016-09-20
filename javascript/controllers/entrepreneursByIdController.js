@@ -9,5 +9,8 @@ angular
         $scope.classArray = data[1]
         $scope.business = data[2][0]
 			})
-
+		$scope.editEntrepreneur = function() {
+			console.log('hit');
+			dataFactory.updateEntrepreneur($scope.entrepreneur, $stateParams.id)
+		}
   });
