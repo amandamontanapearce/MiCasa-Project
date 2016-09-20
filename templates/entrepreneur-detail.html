@@ -34,21 +34,11 @@
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="modal fade" id="addAClass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-=======
-    <!--Edit Entreprpeneur Modal -->
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
->>>>>>> 8d7b9f1c14c070b3c86292a6c08e19671ad2eaec
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-<<<<<<< HEAD
-            <h4 class="modal-title" id="myModalLabel">Add a Class</h4>
-          </div>
+          <h4 class="modal-title" id="myModalLabel">Add a Class</h4>
           <div class="modal-body">
             <form>
               <div class="row">
@@ -90,15 +80,16 @@
                   </div>
                 </div>
               </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" ng-click="addANewClass()" data-dismiss="modal">Add a Class</button>
-          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addANewClass()" data-dismiss="modal">Add a Class</button>
+              </div>
             </form>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <div class="modal fade" id="addABusiness" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -108,15 +99,11 @@
               <span aria-hidden="true">&times;</span>
             </button>
             <h4 class="modal-title" id="myModalLabel">Add a business</h4>
-=======
-            <h4 class="modal-title" id="myModalLabel">Entrepreneur Edit</h4>
->>>>>>> 8d7b9f1c14c070b3c86292a6c08e19671ad2eaec
           </div>
           <div class="modal-body">
 
             <form>
               <div class="form-group">
-<<<<<<< HEAD
                 <label for="businessName">Business Name</label>
                 <input id="businessName" type="text" ng-model="newBusiness.name">
               </div>
@@ -170,7 +157,47 @@
                     <input type="date" name="date_closed" ng-model="newBusiness.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
                   </div>
                 </div>
-=======
+              </div>
+              <fieldset class="form-group">
+                <legend>Is In Good Standing</legend>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="true" ng-checked="newBusiness.good_standing === true"> In Good Standing
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="false" ng-checked="newBusiness.good_standing === false"> Not In Good Standing
+                  </label>
+                </div>
+              </fieldset>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addANewBusiness()" data-dismiss="modal">Add a business</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Edit Entreprpeneur Modal -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Entrepreneur Edit</h4>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
                 <label for="Entrepreneur-First">Entrepreneur First Name</label>
                 <input id="Entrepreneur-First" type="text" ng-model="entrepreneur.first_name">
               </div>
@@ -189,44 +216,16 @@
               <div class="form-group">
                 <label for="gender">Gender</label>
                 <input id="gender" type="text" ng-model="entrepreneur.gender">
->>>>>>> 8d7b9f1c14c070b3c86292a6c08e19671ad2eaec
               </div>
               <fieldset class="form-group">
                 <legend>Is In Good Standing</legend>
                 <div class="radio">
                   <label>
-<<<<<<< HEAD
-                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="true" ng-checked="newBusiness.good_standing === true"> In Good Standing
-=======
                     <input type="radio" ng-model="entrepreneur.isMinority" ng-value="true" ng-checked="entrepreneur.isMinority === true"> Is Minority
->>>>>>> 8d7b9f1c14c070b3c86292a6c08e19671ad2eaec
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-<<<<<<< HEAD
-                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="false" ng-checked="newBusiness.good_standing === false"> Not In Good Standing
-                  </label>
-                </div>
-              </fieldset>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3"></textarea>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="addANewBusiness()" data-dismiss="modal">Add a business</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
-=======
                     <input type="radio" ng-model="entrepreneur.isMinority" ng-value="false" ng-checked="entrepreneur.isMinority === false"> Is Not Minority
                   </label>
                 </div>
@@ -249,7 +248,6 @@
       </div>
     <a class="btn btn-primary" href="" role="button" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
     <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
->>>>>>> 8d7b9f1c14c070b3c86292a6c08e19671ad2eaec
   </div>
 </div>
 </div>
