@@ -1,3 +1,4 @@
+<div class="container businessByIdTemplate">
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
     <h3>{{entrepreneur.first_name}} {{entrepreneur.last_name}}</h3>
@@ -32,6 +33,71 @@
         <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus"></i>&nbsp; Add Business</a>
       </div>
     </div>
-    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+
+    <!--Edit Entreprpeneur Modal -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Entrepreneur Edit</h4>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
+                <label for="Entrepreneur-First">Entrepreneur First Name</label>
+                <input id="Entrepreneur-First" type="text" ng-model="entrepreneur.first_name">
+              </div>
+              <div class="form-group">
+                <label for="Entrepreneur-Last">Entrepreneur Last Name</label>
+                <input id="Entrepreneur-Last" type="text" ng-model="entrepreneur.last_name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" ng-model="entrepreneur.ownerPhone">
+              </div>
+              <div class="form-group">
+                <label for="ownerEmail">Email</label>
+                <input id="ownerEmail" type="text" ng-model="entrepreneur.email">
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <input id="gender" type="text" ng-model="entrepreneur.gender">
+              </div>
+              <fieldset class="form-group">
+                <legend>Is In Good Standing</legend>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="entrepreneur.isMinority" ng-value="true" ng-checked="entrepreneur.isMinority === true"> Is Minority
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="entrepreneur.isMinority" ng-value="false" ng-checked="entrepreneur.isMinority === false"> Is Not Minority
+                  </label>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" ng-model="owner.languageSpoken">
+                    <option value="English" ng-selected="owner.languageSpoken === English">English</option>
+                    <option value="Spanish" ng-selected="owner.languageSpoken === Spanish">Spanish</option>
+                    <option value="Bilingual" ng-selected="owner.languageSpoken === Bilingual">Bilingual</option>
+                  </select>
+                </div>
+              </fieldset>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="editEntrepreneur()" data-dismiss="modal">Save changes</button>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    <a class="btn btn-primary" href="" role="button" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+    <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
   </div>
+</div>
 </div>
