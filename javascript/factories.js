@@ -153,6 +153,10 @@ angular
 				})
 			},
 
+			deleteEntrepreneurById: function(id) {
+				return $http.get('http://localhost:3000/entrepreneurs/' + id + '/delete', id)
+			},
+
 			addClasstoOwner: function(id, classInfo) {
 				console.log("adding class to owner");
 				return $http.post('http://localhost:3000/entrepreneurs/' + id + '/addClassToOwner', classInfo)
