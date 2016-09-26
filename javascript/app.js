@@ -26,7 +26,7 @@ angular
 			})
 			.state('entrepreneurs', {
 				url: '/entrepreneurs',
-				controller: "entrepreneursController",
+				controller: "entrepreneurController",
 				templateUrl: "templates/entrepreneurs.html"
 			})
 			.state('entrepreneursById', {

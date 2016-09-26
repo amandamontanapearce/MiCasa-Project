@@ -11,6 +11,14 @@ angular
 					return $q.resolve(results)
 				})
 			},
+			getAllEntrepreneurs: function () {
+				return $http.get('http://localhost:3000/entrepreneurs')
+				.then(function(data) {
+					let results = data.data
+					console.log(results);
+					return $q.resolve(results)
+				})
+			},
 			getBusinessById: function(id) {
 				return $http.get('http://localhost:3000/businesses/' + id)
 					.then(function(data) {

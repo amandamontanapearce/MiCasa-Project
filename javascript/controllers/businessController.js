@@ -25,7 +25,7 @@ angular
 			}
 		}
 		$scope.filterCity = function (company) {
-			if(!$scope.city) {
+			if(!$scope.cityName) {
 				return true
 			} else {
 				return company.city == $scope.cityName
