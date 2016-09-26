@@ -41,43 +41,55 @@
           <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Add a Class</h4>
           <div class="modal-body">
-            <form>
+            <form name="addClass">
               <div class="row">
                 <hr>
                 <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="class">Education</label>
-                    <select ng-model="newClass.class_id" name="class" class="form-control" id="class">
+                    <select ng-model="newClass.class_id" name="class" class="form-control" id="class" ng-required="true">
                       <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
                     </select>
+                    <div class="alert alert-danger" ng-show="addClass.class.$touched && addClass.class.$invalid">
+                      <p class="alert-danger" ng-show="addClass.class.$error.required">Class is Required</p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-2">
                   <div class="form-group">
                     <label for="semester">Semester</label>
-                    <select ng-model="newClass.semester" name="semester" class="form-control" id="semester">
+                    <select ng-model="newClass.semester" name="semester" class="form-control" id="semester" ng-required="true">
                       <option selected disabled></option>
                       <option>Spring</option>
                       <option>Summer</option>
                       <option>Fall</option>
                       <option>Winter</option>
                     </select>
+                    <div class="alert alert-danger" ng-show="addClass.semester.$touched && addClass.semester.$invalid">
+                      <p class="alert-danger" ng-show="addClass.semester.$error.required">Class is Required</p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-2">
                   <div class="form-group">
                     <label for="year">Year</label>
-                    <input ng-model="newClass.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+                    <input ng-model="newClass.year" type="number" name="year" class="form-control" id="year" placeholder="Year"ng-required="true">
+                    <div class="alert alert-danger" ng-show="addClass.year.$touched && addClass.year.$invalid">
+                      <p class="alert-danger" ng-show="addClass.year.$error.required">Year is Required</p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-2">
                   <div class="form-group">
                     <label for="did_graduate">Graduated?</label>
-                    <select ng-model="newClass.did_graduate" name="did_graduate" class="form-control" id="did_graduate">
+                    <select ng-model="newClass.did_graduate" name="did_graduate" class="form-control" id="did_graduate" ng-required="true">
                       <option selected disabled></option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
+                    <div class="alert alert-danger" ng-show="addClass.did_graduate.$touched && addClass.did_graduate.$invalid">
+                      <p class="alert-danger" ng-show="addClass.did_graduate.$error.required">Graduation is Required</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -103,63 +115,93 @@
           </div>
           <div class="modal-body">
 
-            <form>
+            <form name="addBusinessToOwner">
               <div class="form-group">
                 <label for="businessName">Business Name</label>
-                <input id="businessName" type="text" ng-model="newBusiness.name">
+                <input id="businessName" type="text" name="businessName" ng-model="newBusiness.name" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessName.$touched && addBusinessToOwner.businessName.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessName.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessPhone">Phone</label>
-                <input id="businessPhone" type="text" ng-model="newBusiness.businessPhone">
+                <input id="businessPhone" type="text" name="businessPhone" ng-model="newBusiness.businessPhone" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessPhone.$touched && addBusinessToOwner.businessPhone.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessPhone.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessEmail">Email</label>
-                <input id="businessEmail" type="text" ng-model="newBusiness.email">
+                <input id="businessEmail" type="text" name="businessEmail" ng-model="newBusiness.email" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessEmail.$touched && addBusinessToOwner.businessEmail.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessEmail.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessWebsite">Website</label>
-                <input id="businessWebsite" type="text" ng-model="newBusiness.website">
+                <input id="businessWebsite" type="text" name="businessWebsite" ng-model="newBusiness.website" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessWebsite.$touched && addBusinessToOwner.businessWebsite.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessWebsite.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessAddress1">Address</label>
-                <input id="businessAddress1" ng-model="newBusiness.address1" type="text">
+                <input id="businessAddress1" name="businessAddress1" ng-model="newBusiness.address1" type="text" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessAddress1.$touched && addBusinessToOwner.businessAddress1.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessAddress1.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessCity">City</label>
-                <input id="businessCity" name="editBusinessForm.city" type="text" ng-model="newBusiness.city">
+                <input id="businessCity" name="businessCity" type="text" ng-model="newBusiness.city" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessCity.$touched && addBusinessToOwner.businessCity.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessCity.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessState">State</label>
-                <input id="businessState" name="editBusinessForm.state" type="text" ng-model="newBusiness.state">
+                <input id="businessState" name="businessState" type="text" ng-model="newBusiness.state" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessState.$touched && addBusinessToOwner.businessState.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessState.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="businessZip">Zip</label>
-                <input id="businessZip" type="text" ng-model="newBusiness.zip">
+                <input id="businessZip" type="text" name="businessZip" ng-model="newBusiness.zip" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessZip.$touched && addBusinessToOwner.businessZip.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessZip.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="form-group">
                 <label for="industry">Industry:</label>
-                <select class="form-control" name="industry" id="industry" ng-model="newBusiness.industry_id">
+                <select class="form-control" name="industry" id="industry" ng-model="newBusiness.industry_id" ng-required="true">
                   <option ng-value="{{industry.id}}" ng-repeat="industry in industries">{{industry.type}}</option>
                 </select>
                 <br/>
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.industry.$touched && addBusinessToOwner.industry.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.industry.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="row">
                 <div class="col-xs-6">
                   <div class="form-group">
                     <div class="form-group">
                       <label for="date_opened">Doors Opened:</label>
-                      <input type="date" ng-model="newBusiness.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy">
+                      <input type="date" ng-model="newBusiness.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy" ng-required="true">
+                      <div class="alert alert-danger" ng-show="addBusinessToOwner.date_opened.$touched && addBusinessToOwner.date_opened.$invalid">
+                        <p class="alert-danger" ng-show="addBusinessToOwner.date_opened.$error.required">Business Name is Required</p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-6">
                   <div class="form-group">
                     <label for="date_closed">Doors Closed:</label>
-                    <input type="date" name="date_closed" ng-model="newBusiness.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
+                    <input type="date" name="date_closed" ng-model="newBusiness.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy" required>
                   </div>
                 </div>
               </div>
-              <fieldset class="form-group">
+              <fieldset class="form-group" name="goodStanding" ng-required="true">
                 <legend>Is In Good Standing</legend>
                 <div class="radio">
                   <label>
@@ -174,7 +216,10 @@
               </fieldset>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3"></textarea>
+                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3" name="description" ng-required="true"></textarea>
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.description.$touched && addBusinessToOwner.description.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.description.$error.required">Business Name is Required</p>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
