@@ -78,6 +78,7 @@ angular
 					'last_name': owner.last_name,
 					'email': owner.email,
 					'isMinority': owner.isMinority,
+					'languageSpoken': owner.languageSpoken,
 					'gender': owner.gender
 				}
 

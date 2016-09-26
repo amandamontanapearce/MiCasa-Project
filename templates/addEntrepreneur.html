@@ -42,75 +42,90 @@
           </div>
         </div>
       </div>
-    </div>
     <div class="form-group">
-      <label for="gender">Gender</label>
-      <input type="text" name="gender" ng-model="owner.gender" class="form-control" id="gender" placeholder="Gender" ng-required="true">
+      <label for="gender">Gender:</label>
+      <select ng-model="owner.gender" name="gender" class="form-control" id="gender" ng-required="true">
+        <option ng-value="Female">Female</option>
+        <option ng-value="Male">Male</option>
+        <option ng-value="Not-Specified">Prefer not to specify</option>
+      </select>
       <div class="alert alert-danger" ng-show="addOwner.gender.$touched && addOwner.gender.$invalid">
         <p class="alert-danger" ng-show="addOwner.gender.$error.required">Gender is Required</p>
       </div>
     </div>
     <div class="form-group">
-      <label for="language">Language</label>
-      <div class="radio-inline">
-        <label><input type="radio" ng-model="owner.languageSpoken" value="English">English</label>
-      </div>
-      <div class="radio-inline">
-        <label><input type="radio" ng-model="owner.languageSpoken" value="Spanish">Spanish</label>
-      </div>
-      <div class="radio-inline">
-        <label><input type="radio" ng-model="owner.languageSpoken" value="Billingual">Billingual</label>
+      <label for="minority">Minority:</label>
+      <select ng-model="owner.isMinority" name="isMinority" class="form-control" id="minority" ng-required="true">
+        <option ng-value="true">Yes</option>
+        <option ng-value="false">No</option>
+      </select>
+      <div class="alert alert-danger" ng-show="addOwner.isMinority.$touched && addOwner.isMinority.$invalid">
+        <p class="alert-danger" ng-show="addOwner.isMinority.$error.required">Minority status is Required</p>
       </div>
     </div>
     <div class="form-group">
-      <label for="email">Minority</label>
-      <div class="radio-inline">
-        <label><input type="radio" ng-model="owner.isMinority" value="true">Yes</label>
-      </div>
-      <div class="radio-inline">
-        <label><input type="radio" ng-model="owner.isMinority" value="false">No</label>
+      <label for="languageSpoken">Language:</label>
+      <select ng-model="owner.languageSpoken" name="languageSpoken" class="form-control" id="languageSpoken" ng-required="true">
+        <option ng-value="English">English</option>
+        <option ng-value="Spanish">Spanish</option>
+        <option ng-value="Bilingual">Bilingual</option>
+      </select>
+      <div class="alert alert-danger" ng-show="addOwner.languageSpoken.$touched && addOwner.languageSpoken.$invalid">
+        <p class="alert-danger" ng-show="addOwner.languageSpoken.$error.required">Minority status is Required</p>
       </div>
     </div>
     <div class="row">
-      <hr>
       <div class="col-xs-12 col-sm-6">
         <div class="form-group">
           <label for="class">Education</label>
-          <select ng-model="owner.class_id" name="class" class="form-control" id="class">
+          <select ng-model="owner.class_id" name="class" class="form-control" id="class" ng-required="true">
             <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
           </select>
+          <div class="alert alert-danger" ng-show="addOwner.class.$touched && addOwner.class.$invalid">
+            <p class="alert-danger" ng-show="addOwner.class.$error.required">Minority status is Required</p>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-2">
         <div class="form-group">
           <label for="semester">Semester</label>
-          <select ng-model="owner.semester" name="semester" class="form-control" id="semester">
+          <select ng-model="owner.semester" name="semester" class="form-control" id="semester" ng-required="true">
             <option selected disabled></option>
             <option>Spring</option>
             <option>Summer</option>
             <option>Fall</option>
             <option>Winter</option>
           </select>
+          <div class="alert alert-danger" ng-show="addOwner.semester.$touched && addOwner.semester.$invalid">
+            <p class="alert-danger" ng-show="addOwner.semester.$error.required">Minority status is Required</p>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-2">
         <div class="form-group">
           <label for="year">Year</label>
-          <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+          <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year" ng-requried="true">
+          <div class="alert alert-danger" ng-show="addOwner.semester.$touched && addOwner.semester.$invalid">
+            <p class="alert-danger" ng-show="addOwner.semester.$error.required">Minority status is Required</p>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-2">
         <div class="form-group">
           <label for="did_graduate">Graduated?</label>
-          <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate">
+          <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate" ng-required="true">
             <option selected disabled></option>
             <option>Yes</option>
             <option>No</option>
           </select>
+          <div class="alert alert-danger" ng-show="addOwner.did_graduate.$touched && addOwner.did_graduate.$invalid">
+            <p class="alert-danger" ng-show="addOwner.did_graduate.$error.required">Minority status is Required</p>
+          </div>
         </div>
       </div>
     </div>
   </form>
+    </div>
   </div>
 </div>
 <div class="row">
