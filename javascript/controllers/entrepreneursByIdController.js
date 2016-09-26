@@ -32,6 +32,14 @@ angular
 			})
 		}
 
+		$scope.deleteEntrepreneur = function(entrepreneurFirstName, entrepreneurLastName) {
+      if (confirm("Are you sure you want to delete " + entrepreneurFirstName + " " + entrepreneurLastName + "? This action cannot be undone.")) {
+        dataFactory.deleteEntrepreneurById($stateParams.id).then(function() {
+          $state.go('home')
+        })
+      }
+    }
+
 		$scope.editEntrepreneur = function() {
 			console.log('hit');
 			dataFactory.updateEntrepreneur($scope.entrepreneur, $stateParams.id)

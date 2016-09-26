@@ -123,11 +123,14 @@ angular
 					'description': business.description,
 					'website': business.website
 				}
-
 				console.log(businessData);
 				return $http.post('http://localhost:3000/businesses/' + id + '/addById', businessData)
-
 			},
+
+			deleteBusinessById: function(id) {
+				return $http.get('http://localhost:3000/businesses/' + id + '/delete', id)
+			},
+
 			addOwner: function (owner) {
 				ownerData = {
 					'first_name': owner.first_name,
@@ -148,6 +151,10 @@ angular
 				return $http.post('http://localhost:3000/entrepreneurs/add', data).then(function(data){
 					return data
 				})
+			},
+
+			deleteEntrepreneurById: function(id) {
+				return $http.get('http://localhost:3000/entrepreneurs/' + id + '/delete', id)
 			},
 
 			addClasstoOwner: function(id, classInfo) {
