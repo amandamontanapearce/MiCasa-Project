@@ -44,7 +44,7 @@
           <h3 class="panel-title">Owner(s)</h3>
         </div>
         <div class="panel-body">
-          {{business.first_name}} {{business.last_name}}
+          <a ui-sref="entrepreneursById({id:business.owner_id})">{{business.first_name}} {{business.last_name}}</a>          
         </div>
       </div>
 
