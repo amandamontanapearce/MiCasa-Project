@@ -1,0 +1,135 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <!-- add gender checkbox -->
+    <h3 class="panel-title">{{message}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <form name="addOwner">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name" ng-required="true">
+          <div class="alert alert-danger" ng-show="addOwner.first_name.$touched && addOwner.first_name.$invalid">
+            <p class="alert-danger" ng-show="addOwner.first_name.$error.required">First Name is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name" ng-required="true">
+          <div class="alert alert-danger" ng-show="addOwner.last_name.$touched && addOwner.last_name.$invalid">
+            <p class="alert-danger" ng-show="addOwner.last_name.$error.required">Last Name is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email" ng-required="true">
+          <div class="alert alert-danger" ng-show="addOwner.email.$touched && addOwner.email.$invalid">
+            <p class="alert-danger" ng-show="addOwner.email.$error.required">Email is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" name="phone" ng-model="owner.ownerPhone" class="form-control" id="phone" placeholder="Phone Number" ng-required="true">
+          <div class="alert alert-danger" ng-show="addOwner.phone.$touched && addOwner.phone.$invalid">
+            <p class="alert-danger" ng-show="addOwner.phone.$error.required">Phone is Required</p>
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select ng-model="owner.gender" name="gender" class="form-control" id="gender" ng-required="true">
+        <option ng-value="Female">Female</option>
+        <option ng-value="Male">Male</option>
+        <option ng-value="Not-Specified">Prefer not to specify</option>
+      </select>
+      <div class="alert alert-danger" ng-show="addOwner.gender.$touched && addOwner.gender.$invalid">
+        <p class="alert-danger" ng-show="addOwner.gender.$error.required">Gender is Required</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="minority">Minority:</label>
+      <select ng-model="owner.isMinority" name="isMinority" class="form-control" id="minority" ng-required="true">
+        <option ng-value="true">Yes</option>
+        <option ng-value="false">No</option>
+      </select>
+      <div class="alert alert-danger" ng-show="addOwner.isMinority.$touched && addOwner.isMinority.$invalid">
+        <p class="alert-danger" ng-show="addOwner.isMinority.$error.required">Minority status is Required</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="languageSpoken">Language:</label>
+      <select ng-model="owner.languageSpoken" name="languageSpoken" class="form-control" id="languageSpoken" ng-required="true">
+        <option ng-value="English">English</option>
+        <option ng-value="Spanish">Spanish</option>
+        <option ng-value="Bilingual">Bilingual</option>
+      </select>
+      <div class="alert alert-danger" ng-show="addOwner.languageSpoken.$touched && addOwner.languageSpoken.$invalid">
+        <p class="alert-danger" ng-show="addOwner.languageSpoken.$error.required">Minority status is Required</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="class">Education</label>
+          <select ng-model="owner.class_id" name="class" class="form-control" id="class" ng-required="true">
+            <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
+          </select>
+          <div class="alert alert-danger" ng-show="addOwner.class.$touched && addOwner.class.$invalid">
+            <p class="alert-danger" ng-show="addOwner.class.$error.required">Minority status is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="semester">Semester</label>
+          <select ng-model="owner.semester" name="semester" class="form-control" id="semester" ng-required="true">
+            <option selected disabled></option>
+            <option>Spring</option>
+            <option>Summer</option>
+            <option>Fall</option>
+            <option>Winter</option>
+          </select>
+          <div class="alert alert-danger" ng-show="addOwner.semester.$touched && addOwner.semester.$invalid">
+            <p class="alert-danger" ng-show="addOwner.semester.$error.required">Minority status is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year" ng-requried="true">
+          <div class="alert alert-danger" ng-show="addOwner.semester.$touched && addOwner.semester.$invalid">
+            <p class="alert-danger" ng-show="addOwner.semester.$error.required">Minority status is Required</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="form-group">
+          <label for="did_graduate">Graduated?</label>
+          <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate" ng-required="true">
+            <option selected disabled></option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+          <div class="alert alert-danger" ng-show="addOwner.did_graduate.$touched && addOwner.did_graduate.$invalid">
+            <p class="alert-danger" ng-show="addOwner.did_graduate.$error.required">Minority status is Required</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <button type="submit" class="btn btn-primary btn-block" ng-click="addEntrepreneur(owner)">Submit</button>
+  </div>
+</div>

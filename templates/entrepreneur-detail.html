@@ -1,131 +1,300 @@
-<div class="row container-fluid">
-  <div class="col-xs-12 col-md-10 col-md-offset-1">
-    <h3>Search Business Database</h3>
-    <div class="row">
-      <div class="col-xs-6 col-sm-4">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" ng-model="search">
-        </div>
+<div class="container businessByIdTemplate">
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
+    <h3>{{entrepreneur.first_name}} {{entrepreneur.last_name}}</h3>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact</h3>
       </div>
-      <div class="col-sm-6 col-sm-offset-6">
-        <ul class="nav nav-pills navbar-right">
-          <li class="dropdown ">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
-              City <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu ">
-              <li><a href="#">All</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Accounting</a></li>
-              <li><a href="#">Advertising</a></li>
-              <li><a href="#">Agriculture</a></li>
-              <li><a href="#">Communications</a></li>
-              <li><a href="#">Information Technology</a></li>
-              <li><a href="#">Other</a></li>
-            </ul>
-          </li>
-        </ul>
+      <div class="panel-body">
+        <p><b>Phone</b>: {{entrepreneur.ownerPhone}}</p>
+        <p><b>Email</b>: {{entrepreneur.email}}</p>
+        <p><b>Gender:</b> {{entrepreneur.gender}}</p>
+        <p><b>Language:</b> {{entrepreneur.languageSpoken}}</p>
+        <p ng-show=entrepreneur.isMinority == true><b>Minority:</b> Yes</p>
+        <p ng-hide=entrepreneur.isMinority == false><b>Minority:</b> No</p>
 
-        <ul class="nav nav-pills navbar-right">
-          <li class="dropdown ">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
-              Industry <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu ">
-              <li><a href="#">All</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Accounting</a></li>
-              <li><a href="#">Advertising</a></li>
-              <li><a href="#">Agriculture</a></li>
-              <li><a href="#">Communications</a></li>
-              <li><a href="#">Information Technology</a></li>
-              <li><a href="#">Other</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- <div class="form-group">
-          <select name="state" class="form-control" id="state">
-            <option selected disabled>Filter by Industry</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </div> -->
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Classes</h3>
+      </div>
+      <div class="panel-body">
+        <p ng-repeat="class in classArray"><b>{{class.name}}</b>: {{class.semester}} {{class.year}} <span ng-show="class.did_graduate">(Graduated)</span> <span ng-hide="class.did_graduate">(Did not graduate)</span></p>
+        <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#addAClass"role="button"><i class="fa fa-plus"></i>&nbsp; Add Class</a>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Business</h3>
+      </div>
+      <div class="panel-body">
+        <p ng-repeat="business in businesses"><a ui-sref="businessById({id:business.business_id})">{{business.name}}</a></p>
+        <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#addABusiness"role="button"><i class="fa fa-plus"></i>&nbsp; Add Business</a>
       </div>
     </div>
 
-    <table class="table table-striped table-hover ">
-    <thead>
-      <tr>
-        <th>Business &nbsp;<i class="fa fa-sort-alpha-asc" aria-hidden="false"></i></th>
-        <th>Owner &nbsp;<i class="fa fa-sort-alpha-asc" aria-hidden="false"></i></th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="result in resultArray | filter:search">
-        <td><a href="/{{result.id}}">{{result.name}}</a><br>
-          <span class="text-muted">{{result.type}}<span>
-        </td>
-        <td><a href="">{{result.first_name}} {{result.last_name}}</a></td>
-        <td>{{result.phone}}</td>
-        <td>{{result.email}}</td>
-        <td>{{result.address1}},<br>{{result.city}}, {{result.state}} {{result.zip}}</td>
-      </tr>
-        <!-- <td><a href="">Another Business!</a><br>
-          <span class="text-muted">Information Technology<span>
-        </td>
-        <td><a href="">A. Lady</td>
-        <td>(808) 123-4567</td>
-        <td>me@anotherbiz.net</td>
-        <td>8902 Downtown St.,<br> Englewood, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Cool Company</a><br>
-          <span class="text-muted">Agriculture<span>
-        </td>
-        <td><a href="">Some Dude</a></td>
-        <td>(123) 456-7890</td>
-        <td>inquiries@coolco.com</td>
-        <td>123 Some St.,<br> Denver, CO 80214</td>
-      </tr>
-      <tr>
-        <td><a href="">More Businesses</a><br>
-          <span class="text-muted">Construction<span>
-        </td>
-        <td><a href="">Someone Else</a></td>
-        <td>(123) 123-1234</td>
-        <td>me@asdadsd.net</td>
-        <td>8902 Downtown St.,<br> Denver, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Another Business!</a><br>
-          <span class="text-muted">Retail<span>
-        </td>
-        <td><a href="">A. Lady</td>
-        <td>(808) 123-4567</td>
-        <td>me@anotherbiz.net</td>
-        <td>8902 Downtown St.,<br> Englewood, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Cool Company</a><br>
-          <span class="text-muted">Agriculture<span>
-        </td>
-        <td><a href="">Some Dude</a></td>
-        <td>(123) 456-7890</td>
-        <td>inquiries@coolco.com</td>
-        <td>123 Some St.,<br> Denver, CO 80214</td>
-      </tr>
-      <tr>
-        <td><a href="">More Businesses</a><br>
-          <span class="text-muted">Accounting<span>
-        </td>
-        <td><a href="">Someone Else</a></td>
-        <td>(123) 123-1234</td>
-        <td>me@asdadsd.net</td>
-        <td>8902 Downtown St.,<br> Denver, CO 82212</td>
-      </tr> -->
-    </tbody>
-    </table>
+    <div class="modal fade" id="addAClass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Add a Class</h4>
+          <div class="modal-body">
+            <form name="addClass">
+              <div class="row">
+                <hr>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <label for="class">Education</label>
+                    <select ng-model="newClass.class_id" name="class" class="form-control" id="class" ng-required="true">
+                      <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
+                    </select>
+                    <div class="alert alert-danger" ng-show="addClass.class.$touched && addClass.class.$invalid">
+                      <p class="alert-danger" ng-show="addClass.class.$error.required">Class is Required</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="semester">Semester</label>
+                    <select ng-model="newClass.semester" name="semester" class="form-control" id="semester" ng-required="true">
+                      <option selected disabled></option>
+                      <option>Spring</option>
+                      <option>Summer</option>
+                      <option>Fall</option>
+                      <option>Winter</option>
+                    </select>
+                    <div class="alert alert-danger" ng-show="addClass.semester.$touched && addClass.semester.$invalid">
+                      <p class="alert-danger" ng-show="addClass.semester.$error.required">Class is Required</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="year">Year</label>
+                    <input ng-model="newClass.year" type="number" name="year" class="form-control" id="year" placeholder="Year"ng-required="true">
+                    <div class="alert alert-danger" ng-show="addClass.year.$touched && addClass.year.$invalid">
+                      <p class="alert-danger" ng-show="addClass.year.$error.required">Year is Required</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                  <div class="form-group">
+                    <label for="did_graduate">Graduated?</label>
+                    <select ng-model="newClass.did_graduate" name="did_graduate" class="form-control" id="did_graduate" ng-required="true">
+                      <option selected disabled></option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                    <div class="alert alert-danger" ng-show="addClass.did_graduate.$touched && addClass.did_graduate.$invalid">
+                      <p class="alert-danger" ng-show="addClass.did_graduate.$error.required">Graduation is Required</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addANewClass()" data-dismiss="modal">Add a Class</button>
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+    <div class="modal fade" id="addABusiness" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add a business</h4>
+          </div>
+          <div class="modal-body">
+
+            <form name="addBusinessToOwner">
+              <div class="form-group">
+                <label for="businessName">Business Name</label>
+                <input id="businessName" type="text" name="businessName" ng-model="newBusiness.name" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessName.$touched && addBusinessToOwner.businessName.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessName.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessPhone">Phone</label>
+                <input id="businessPhone" type="text" name="businessPhone" ng-model="newBusiness.businessPhone" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessPhone.$touched && addBusinessToOwner.businessPhone.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessPhone.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessEmail">Email</label>
+                <input id="businessEmail" type="text" name="businessEmail" ng-model="newBusiness.email" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessEmail.$touched && addBusinessToOwner.businessEmail.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessEmail.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessWebsite">Website</label>
+                <input id="businessWebsite" type="text" name="businessWebsite" ng-model="newBusiness.website" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessWebsite.$touched && addBusinessToOwner.businessWebsite.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessWebsite.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessAddress1">Address</label>
+                <input id="businessAddress1" name="businessAddress1" ng-model="newBusiness.address1" type="text" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessAddress1.$touched && addBusinessToOwner.businessAddress1.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessAddress1.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessCity">City</label>
+                <input id="businessCity" name="businessCity" type="text" ng-model="newBusiness.city" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessCity.$touched && addBusinessToOwner.businessCity.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessCity.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessState">State</label>
+                <input id="businessState" name="businessState" type="text" ng-model="newBusiness.state" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessState.$touched && addBusinessToOwner.businessState.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessState.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="businessZip">Zip</label>
+                <input id="businessZip" type="text" name="businessZip" ng-model="newBusiness.zip" ng-required="true">
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.businessZip.$touched && addBusinessToOwner.businessZip.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.businessZip.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="industry">Industry:</label>
+                <select class="form-control" name="industry" id="industry" ng-model="newBusiness.industry_id" ng-required="true">
+                  <option ng-value="{{industry.id}}" ng-repeat="industry in industries">{{industry.type}}</option>
+                </select>
+                <br/>
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.industry.$touched && addBusinessToOwner.industry.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.industry.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="date_opened">Doors Opened:</label>
+                      <input type="date" ng-model="newBusiness.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy" ng-required="true">
+                      <div class="alert alert-danger" ng-show="addBusinessToOwner.date_opened.$touched && addBusinessToOwner.date_opened.$invalid">
+                        <p class="alert-danger" ng-show="addBusinessToOwner.date_opened.$error.required">Business Name is Required</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="date_closed">Doors Closed:</label>
+                    <input type="date" name="date_closed" ng-model="newBusiness.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy" required>
+                  </div>
+                </div>
+              </div>
+              <fieldset class="form-group" name="goodStanding" ng-required="true">
+                <legend>Is In Good Standing</legend>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="true" ng-checked="newBusiness.good_standing === true"> In Good Standing
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="newBusiness.good_standing" ng-value="false" ng-checked="newBusiness.good_standing === false"> Not In Good Standing
+                  </label>
+                </div>
+              </fieldset>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea ng-model="newBusiness.description"id="exampleTextarea" rows="3" name="description" ng-required="true"></textarea>
+                <div class="alert alert-danger" ng-show="addBusinessToOwner.description.$touched && addBusinessToOwner.description.$invalid">
+                  <p class="alert-danger" ng-show="addBusinessToOwner.description.$error.required">Business Name is Required</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addANewBusiness()" data-dismiss="modal">Add a business</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Edit Entreprpeneur Modal -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Entrepreneur Edit</h4>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
+                <label for="Entrepreneur-First">Entrepreneur First Name</label>
+                <input id="Entrepreneur-First" type="text" ng-model="entrepreneur.first_name">
+              </div>
+              <div class="form-group">
+                <label for="Entrepreneur-Last">Entrepreneur Last Name</label>
+                <input id="Entrepreneur-Last" type="text" ng-model="entrepreneur.last_name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" ng-model="entrepreneur.ownerPhone">
+              </div>
+              <div class="form-group">
+                <label for="ownerEmail">Email</label>
+                <input id="ownerEmail" type="text" ng-model="entrepreneur.email">
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <input id="gender" type="text" ng-model="entrepreneur.gender">
+              </div>
+              <fieldset class="form-group">
+                <legend>Is In Good Standing</legend>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="entrepreneur.isMinority" ng-value="true" ng-checked="entrepreneur.isMinority === true"> Is Minority
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-model="entrepreneur.isMinority" ng-value="false" ng-checked="entrepreneur.isMinority === false"> Is Not Minority
+                  </label>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" ng-model="owner.languageSpoken">
+                    <option value="English" ng-selected="owner.languageSpoken === English">English</option>
+                    <option value="Spanish" ng-selected="owner.languageSpoken === Spanish">Spanish</option>
+                    <option value="Bilingual" ng-selected="owner.languageSpoken === Bilingual">Bilingual</option>
+                  </select>
+                </div>
+              </fieldset>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="editEntrepreneur()" data-dismiss="modal">Save changes</button>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    <a class="btn btn-danger" href="" role="button" ng-click="deleteEntrepreneur(entrepreneur.first_name, entrepreneur.last_name)"><i class="fa fa-remove"></i>&nbsp; Delete</a>
+    <a class="btn btn-primary" href="" role="button" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+    <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
+  </div>
+</div>
+</div>

@@ -4,7 +4,7 @@
       <h3>Add a Business</h3>
       <!-- add ability to add only student -->
       <!-- in student profile, add ability to + business -->
-      <form ng-submit="addBusiness(business,owner)">
+      <form ng-submit="addBusiness(business,owner)" name="addBusinessForm">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Business Detail</h3>
@@ -12,66 +12,96 @@
           <div class="panel-body">
             <div class="form-group">
               <label for="business">Business Name</label>
-              <input type="text" name="name" class="form-control" ng-model="business.name" id="business" placeholder="Business Name">
+              <input type="text" name="name" class="form-control" ng-model="business.name" id="business" placeholder="Business Name" ng-required="true">
+              <div class="alert alert-danger" ng-show="addBusinessForm.name.$touched && addBusinessForm.name.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.name.$error.required">First Name is Required</p>
+              </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="text" name="email" class="form-control" id="email" ng-model="business.email" placeholder="Email">
+                  <input type="text" name="email" class="form-control" id="email" ng-model="business.email" placeholder="Email" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.email.$touched && addBusinessForm.email.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.email.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" name="phone" class="form-control" ng-model="business.phone" id="phone" placeholder="Phone">
+                  <input type="text" name="phone" class="form-control" ng-model="business.businessPhone" id="phone" placeholder="Phone" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.phone.$touched && addBusinessForm.phone.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.phone.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label for="website">Website</label>
-              <input type="text" name="website" ng-model="business.website" class="form-control" id="website" placeholder="Website">
+              <input type="text" name="website" ng-model="business.website" class="form-control" id="website" placeholder="Website" ng-required="true">
+              <div class="alert alert-danger" ng-show="addBusinessForm.website.$touched && addBusinessForm.website.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.website.$error.required">First Name is Required</p>
+              </div>
             </div>
             <div class="form-group">
               <label for="address">Address</label>
-              <input type="text" name="address1" ng-model="business.address1" class="form-control" id="address" placeholder="Address">
+              <input type="text" name="address1" ng-model="business.address1" class="form-control" id="address" placeholder="Address" ng-required="true">
+              <div class="alert alert-danger" ng-show="addBusinessForm.address1.$touched && addBusinessForm.address1.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.address1.$error.required">First Name is Required</p>
+              </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="city">City</label>
-                  <input type="text" name="city" ng-model="business.city" class="form-control" id="city" placeholder="City">
+                  <input type="text" name="city" ng-model="business.city" class="form-control" id="city" placeholder="City" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.city.$touched && addBusinessForm.city.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.city.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-6 col-sm-3">
                 <div class="form-group">
                   <label for="state">State</label>
-                  <select name="state" ng-model="business.state" class="form-control" id="state">
+                  <select name="state" ng-model="business.state" class="form-control" id="state" ng-required="true">
 
                     <option selected>CO</option>
                   </select>
+                  <div class="alert alert-danger" ng-show="addBusinessForm.state.$touched && addBusinessForm.state.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.state.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-6 col-sm-3">
                 <div class="form-group">
                   <label for="zip">Zip</label>
-                  <input type="integer" name="zip" ng-model="business.zip" class="form-control" id="zip" placeholder="Zip">
+                  <input type="integer" name="zip" ng-model="business.zip" class="form-control" id="zip" placeholder="Zip" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.zip.$touched && addBusinessForm.zip.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.zip.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label for="industry">Industry:</label>
-              <select class="form-control" name="industry" id="industry" ng-model="business.industry_id">
+              <select class="form-control" name="industry" id="industry" ng-model="business.industry_id" ng-required="true">
                 <option ng-value="{{industry.id}}" ng-repeat="industry in industries">{{industry.type}}</option>
               </select>
               <br/>
+              <div class="alert alert-danger" ng-show="addBusinessForm.industry.$touched && addBusinessForm.industry.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.industry.$error.required">First Name is Required</p>
+              </div>
             </div>
             <div class="row">
               <div class="col-xs-6">
                 <div class="form-group">
                   <div class="form-group">
                     <label for="date_opened">Doors Opened:</label>
-                    <input type="date" ng-model="business.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy">
+                    <input type="date" ng-model="business.date_opened" name="date_opened" class="form-control" id="date_opened" placeholder="mm/dd/yyyy" ng-required="true">
+                    <div class="alert alert-danger" ng-show="addBusinessForm.date_opened.$touched && addBusinessForm.date_opened.$invalid">
+                      <p class="alert-danger" ng-show="addBusinessForm.date_opened.$error.required">First Name is Required</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -79,22 +109,31 @@
                 <div class="form-group">
                   <label for="date_closed">Doors Closed:</label>
                   <input type="date" name="date_closed" ng-model="business.date_closed" class="form-control" id="date_closed" placeholder="mm/dd/yyyy">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.date_closed.$touched && addBusinessForm.date_closed.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.date_closed.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label for="description">Description:</label>
-              <textarea type="text" name="description" ng-model="business.description" class="form-control" id="description"></textarea>
+              <textarea type="text" name="description" ng-model="business.description" class="form-control" id="description" ng-required="true"></textarea>
+              <div class="alert alert-danger" ng-show="addBusinessForm.description.$touched && addBusinessForm.description.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.description.$error.required">First Name is Required</p>
+              </div>
             </div>
             <!-- // Add date for registered with SoS -->
             <div class="checkbox">
               <label>
-                <select name="good_standing" ng-model="business.good_standing" class="form-control" id="good_standing">
+                <select name="good_standing" ng-model="business.good_standing" class="form-control" id="good_standing" ng-required="true">
 
                   <option ng-value="true" selected>Yes</option>
                   <option ng-value="false">No</option>
                 </select> Good Standing? (Secretary of State)
               </label>
+              <div class="alert alert-danger" ng-show="addBusinessForm.good_standing.$touched && addBusinessForm.good_standing.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.good_standing.$error.required">First Name is Required</p>
+              </div>
             </div>
           </div>
         </div>
@@ -108,56 +147,109 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="first_name">First Name</label>
-                  <input type="text" name="first_name" ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name">
+                  <input type="text" name="first_name" ng-model="owner.first_name" class="form-control" id="first_name" placeholder="First Name" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.first_name.$touched && addBusinessForm.first_name.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.first_name.$error.required">First Name is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="last_name">Last Name</label>
-                  <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name">
+                  <input type="text" name="last_name" ng-model="owner.last_name" class="form-control" id="last_name" placeholder="Last Name" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.last_name.$touched && addBusinessForm.last_name.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.last_name.$error.required">Last Name is Required</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email">
+              <input type="text" name="email" ng-model="owner.email" class="form-control" id="email" placeholder="Email" ng-required="true">
+              <div class="alert alert-danger" ng-show="addBusinessForm.email.$touched && addBusinessForm.email.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.email.$error.required">Email is Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select ng-model="owner.gender" name="gender" class="form-control" id="gender" ng-required="true">
+                <option ng-value="Female">Female</option>
+                <option ng-value="Male">Male</option>
+                <option ng-value="Not-Specified">Prefer not to specify</option>
+              </select>
+              <div class="alert alert-danger" ng-show="addBusinessForm.gender.$touched && addBusinessForm.gender.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.gender.$error.required">Gender is Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="minority">Minority:</label>
+              <select ng-model="owner.isMinority" name="isMinority" class="form-control" id="minority" ng-required="true">
+                <option ng-value="true">Yes</option>
+                <option ng-value="false" selected>No</option>
+              </select>
+              <div class="alert alert-danger" ng-show="addBusinessForm.isMinority.$touched && addBusinessForm.isMinority.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.isMinority.$error.required">Minority status is Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="minority">Language:</label>
+              <select ng-model="owner.languageSpoken" name="languageSpoken" class="form-control" id="languageSpoken" ng-required="true">
+                <option ng-value="English">English</option>
+                <option ng-value="Spanish">Spanish</option>
+                <option ng-value="Bilingual">Bilingual</option>
+              </select>
+              <div class="alert alert-danger" ng-show="addBusinessForm.languageSpoken.$touched && addBusinessForm.languageSpoken.$invalid">
+                <p class="alert-danger" ng-show="addBusinessForm.languageSpoken.$error.required">Minority status is Required</p>
+              </div>
             </div>
             <div class="row">
               <hr>
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <label for="class">Education</label>
-                  <select ng-model="owner.class_id" name="class" class="form-control" id="class">
+                  <select ng-model="owner.class_id" name="class" class="form-control" id="class" ng-required="true">
                     <option ng-value="class.id" ng-repeat="class in classes">{{class.name}}</option>
                   </select>
+                  <div class="alert alert-danger" ng-show="addBusinessForm.class.$touched && addBusinessForm.class.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.class.$error.required">Class is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
                   <label for="semester">Semester</label>
-                  <select ng-model="owner.semester" name="semester" class="form-control" id="semester">
+                  <select ng-model="owner.semester" name="semester" class="form-control" id="semester" ng-required="true">
                     <option selected disabled></option>
                     <option>Spring</option>
                     <option>Summer</option>
                     <option>Fall</option>
                     <option>Winter</option>
                   </select>
+                  <div class="alert alert-danger" ng-show="addBusinessForm.semester.$touched && addBusinessForm.semester.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.semester.$error.required">Semester is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
                   <label for="year">Year</label>
-                  <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year">
+                  <input ng-model="owner.year" type="number" name="year" class="form-control" id="year" placeholder="Year" ng-required="true">
+                  <div class="alert alert-danger" ng-show="addBusinessForm.year.$touched && addBusinessForm.year.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.year.$error.required">Year is Required</p>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
                   <label for="did_graduate">Graduated?</label>
-                  <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate">
+                  <select ng-model="owner.did_graduate" name="did_graduate" class="form-control" id="did_graduate" ng-required="true">
                     <option selected disabled></option>
                     <option>Yes</option>
                     <option>No</option>
                   </select>
+                  <div class="alert alert-danger" ng-show="addBusinessForm.did_graduate.$touched && addBusinessForm.did_graduate.$invalid">
+                    <p class="alert-danger" ng-show="addBusinessForm.did_graduate.$error.required">Graduation status is Required</p>
+                  </div>
                 </div>
               </div>
             </div>

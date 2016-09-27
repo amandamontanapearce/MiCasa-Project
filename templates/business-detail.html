@@ -9,7 +9,7 @@
           <h3 class="panel-title">Contact</h3>
         </div>
         <div class="panel-body">
-          <p><b>Phone</b>: {{business.phone}}</p>
+          <p><b>Phone</b>: {{business.businessPhone}}</p>
           <p><b>Email</b>: {{business.email}}</p>
           <p><b>Website</b>: <a href="" target="_blank">{{business.website}}</a></p>
           <p><b>Address</b>: {{business.address1}}, {{business.city}}, {{business.state}} {{business.zip}}</p>
@@ -22,8 +22,8 @@
         </div>
         <div class="panel-body">
           <p><b>Industry</b>: {{business.type}}</p>
-          <p><b>Date Opened</b>: {{business.date_opened}}</p>
-          <p><b>Date Closed</b>: {{business.date_closed}}</p>
+          <p><b>Date Opened</b>: {{date_opened}}</p>
+          <p><b>Date Closed</b>: {{date_closed}}</p>
           <p><b>Good Standing?</b>: <span ng-show="business.good_standing">Yes</span><span ng-hide="business.good_standing">No</span></p>
           <p><b>Description</b>: {{business.description}}</p>
         </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="panel-body">
           <p ng-repeat="comment in commentArray"><b>{{comment.username}}</b>: {{comment.notes}}</p>
-          <a class="btn btn-default btn-sm" href="#" role="button" data-toggle="modal" data-target="#notes"><i class="fa fa-plus-circle"></i>&nbsp; Add Note</a>
+          <a class="btn btn-default btn-sm" href="" role="button" data-toggle="modal" data-target="#notes"><i class="fa fa-plus-circle"></i>&nbsp; Add Note</a>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
           <h3 class="panel-title">Owner(s)</h3>
         </div>
         <div class="panel-body">
-          {{business.first_name}} {{business.last_name}}
+          <a ui-sref="entrepreneursById({id:business.owner_id})">{{business.first_name}} {{business.last_name}}</a>          
         </div>
       </div>
 
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                   <label for="businessPhone">Phone</label>
-                  <input id="businessPhone" type="text" ng-model="business.phone">
+                  <input id="businessPhone" type="text" ng-model="business.businessPhone">
                 </div>
                 <div class="form-group">
                   <label for="businessEmail">Email</label>
@@ -160,6 +160,7 @@
         </div>
       </div>
 
+      <a class="btn btn-danger" href="" role="button" ng-click="deleteBusiness(business.name)"><i class="fa fa-remove"></i>&nbsp; Delete</a>
       <a class="btn btn-primary" href="" role="button" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
       <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
 
