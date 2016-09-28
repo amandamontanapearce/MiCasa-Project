@@ -1,6 +1,7 @@
 angular
 	.module('myApp')
-	.controller('businessByIdController', function($scope, $stateParams, dataFactory, $state) {
+	.controller('businessByIdController', function($scope, $stateParams, dataFactory, $state, authService) {
+		authService.getAuth();
 		$scope.business = {}
 		$scope.commentArray = []
 		dataFactory.getById($stateParams.id)

@@ -1,6 +1,7 @@
 angular
 	.module('myApp')
-	.controller('entrepreneurController', function($scope, dataFactory) {
+	.controller('entrepreneurController', function($scope, dataFactory, authService) {
+		authService.getAuth();
 		$scope.industryId = ""
 		$scope.gender = ""
 		$scope.minority = ""

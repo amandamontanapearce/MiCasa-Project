@@ -3,7 +3,7 @@ function _setUserData(data) {
 }
 angular
     .module('myApp')
-    .controller('loginController', function($scope, dataFactory, $state) {
+    .controller('loginController', function($scope, dataFactory, $state, $window) {
         $scope.login = function(username, password) {
             dataFactory.getLogin(username, password).then(function(response) {
                 _setUserData(response.data);
@@ -11,6 +11,8 @@ angular
                     getToken: user.token,
                     getUserId: user.userId
                 }
+                console.log(user.token);
+                $window.localStorage['jwToken'] = user.token;
                 $state.go('home')
             }, function errorCallback(err) {
                 console.log(err);

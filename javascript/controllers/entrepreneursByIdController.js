@@ -1,6 +1,7 @@
 angular
   .module('myApp')
-  .controller('entrepreneursByIdController', function($scope, $stateParams, dataFactory, $state) {
+  .controller('entrepreneursByIdController', function($scope, $stateParams, dataFactory, $state, authService) {
+    authService.getAuth();
     $scope.entrepreneur = {};
     $scope.classArray = [];
     dataFactory.getEntrepreneurById($stateParams.id)

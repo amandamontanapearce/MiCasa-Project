@@ -1,6 +1,7 @@
 angular
  .module('myApp')
- .controller('addEntrepreneurController', function($scope, dataFactory){
+ .controller('addEntrepreneurController', function($scope, dataFactory, authService){
+   authService.getAuth();
    dataFactory.getAllClasses.then(function(data) {
      $scope.classes = data
    })

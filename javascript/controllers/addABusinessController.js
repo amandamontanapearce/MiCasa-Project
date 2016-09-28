@@ -1,6 +1,7 @@
 angular
 	.module('myApp')
-  .controller('addABusinessController', function($scope, dataFactory, $state) {
+  .controller('addABusinessController', function($scope, dataFactory, $state, authService) {
+	authService.getAuth();
 	dataFactory.getAllIndustries.then(function(data) {
 
 		$scope.industries = data;
@@ -14,8 +15,4 @@ angular
 				$state.go('businessById', { id: data })
 			})
 	}
-
-
-
-
 })
