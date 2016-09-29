@@ -21,6 +21,7 @@ angular
         }
       $scope.logout = function() {
         $window.localStorage.removeItem('jwToken');
+        $state.go('login');
       }
       $scope.homeRedirect = function() {
         if ($window.localStorage['jwToken']) {
