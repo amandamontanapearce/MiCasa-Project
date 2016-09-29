@@ -3,7 +3,8 @@ function _setUserData(data) {
 }
 angular
     .module('myApp')
-    .controller('loginController', function($scope, dataFactory, $state, $window) {
+    .controller('loginController', function($scope, dataFactory, $state, $window, $location) {
+        $scope.uiRouterState = $state;
         $scope.login = function(username, password) {
             dataFactory.getLogin(username, password).then(function(response) {
                 _setUserData(response.data);
@@ -18,4 +19,14 @@ angular
                 console.log(err);
             });
         }
+      $scope.logout = function() {
+        $window.localStorage.removeItem('jwToken');
+      }
+      $scope.homeRedirect = function() {
+        if ($window.localStorage['jwToken']) {
+          $location.path('home');
+        } else {
+          $state.go('login');
+        }
+      }
     });

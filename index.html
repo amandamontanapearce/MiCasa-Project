@@ -18,13 +18,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ui-sref="home">Mi Casa Business Lookup</a>
+          <a class="navbar-brand" ng-controller="loginController" ng-click="homeRedirect()" href="#">Mi Casa Business Lookup</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="/home" aria-expanded="true" ng-controller="loginController" ng-hide="uiRouterState.current.name == 'login'">
                 <i class="fa fa-search"></i>&nbsp; Search  <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
@@ -33,20 +32,11 @@
               </ul>
             </li>
             <!-- <li class="active"><a href="#"><i class="fa fa-search"></i>&nbsp; Search <span class="sr-only">(current)</span></a></li> -->
-            <li><a ui-sref="addABusiness"><i class="fa fa-plus"></i>&nbsp; Add Business</a></li>
-            <li><a ui-sref="addEntrepreneur"><i class="fa fa-plus"></i>&nbsp; Add Owner Only</a></li>
+            <li><a ui-sref="addABusiness" ng-controller="loginController" ng-hide="uiRouterState.current.name == 'login'"><i class="fa fa-plus"></i>&nbsp; Add Business</a></li>
+            <li><a ui-sref="addEntrepreneur" ng-controller="loginController" ng-hide="uiRouterState.current.name == 'login'"><i class="fa fa-plus"></i>&nbsp; Add Owner Only</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user fa-lg"></i> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
+            <li><a href="#" ng-controller="loginController" ng-click="logout()" ng-hide="uiRouterState.current.name == 'login'">Logout</a></li>
           </ul>
         </div>
       </div>
